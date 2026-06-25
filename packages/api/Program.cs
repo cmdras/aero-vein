@@ -48,8 +48,8 @@ app.MapGet("/", () => new
 app.MapGet("/api/auth/me", () => TypedResults.Unauthorized())
     .Produces(StatusCodes.Status401Unauthorized);
 
-app.MapGet("/api/sites", async (ISiteAccess sites, CancellationToken ct) =>
-    await sites.ListAsync(ct))
+app.MapGet("/api/sites", async (ISiteAccess sites, CancellationToken cancellationToken) =>
+    await sites.ListAsync(cancellationToken))
     .WithName("GetSites")
     .WithTags("Sites");
 
