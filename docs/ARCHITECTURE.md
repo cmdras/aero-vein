@@ -50,7 +50,7 @@ and resource-access, nothing calls upward, **engines never call each other**.
                 + ETA)              deadline)      cold-chain, viability)
                  │   pure-ish rules/computation; mutually independent
                  ▼
-  RESOURCE     Fleet/TelemetryAccess · ConditionsAccess · CustodyEventStore · MissionStore
+  RESOURCE     Fleet/TelemetryAccess · ConditionsAccess · CustodyEventStore · MissionStore · SiteAccess
   ACCESS         │   encapsulate HOW we reach a resource — not the resource itself
                  ▼
   RESOURCES    Simulation engine  ·  weather / no-fly-zone source  ·  DB
@@ -171,9 +171,10 @@ temperature stayed in range" (PITCH) is exactly an event stream, and provable cu
   telemetry. The dashboard reads the projection; it is never the source of truth.
 - **Single writer per stream**, so the projection can't drift from the events.
 - **Maps onto Marten:** custody history (`GET /missions/{id}/custody`) is a **live aggregation**
-  (`AggregateStreamAsync`, computed on read — no stored copy to drift); the live ops board is an
-  **async projection** run by Marten's projection daemon (writes stay fast, rebuildable from zero
-  on demand). Per-stream optimistic concurrency enforces the single writer.
+  (`AggregateStreamAsync`, computed on read — no stored copy to drift); the waiting list (M1) is an
+  **Inline projection** (read-your-writes by construction — see [[adr-0009]]); the live ops board
+  (M3) upgrades to an **async projection** run by the projection daemon (rebuildable from zero on
+  demand). Per-stream optimistic concurrency enforces the single writer.
 
 Stable entities (sketch — 🔲 column-level detail lives with migrations):
 

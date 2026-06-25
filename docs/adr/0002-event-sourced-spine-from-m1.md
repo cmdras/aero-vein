@@ -4,7 +4,7 @@ Date: 2026-06-25
 
 ## Status
 
-Accepted
+Accepted; refined by [[adr-0009]]
 
 ## Context
 
@@ -22,9 +22,6 @@ Marten stream through the `CustodyEventStore`/`MissionStore` seams; the urgent-f
 list is a real Marten projection; cancel appends a further event. The `MissionManager`
 orchestrates through the ResourceAccess seams even while thin.
 
-> **Refined by [[adr-0009]]:** the waiting-list projection uses the **Inline** lifecycle in
-> M1 (read-your-writes by construction); the async projection daemon is introduced in M3.
-
 ## Consequences
 
 - "The projection can't drift from the events" (§4) holds from request #1, because events
@@ -32,7 +29,5 @@ orchestrates through the ResourceAccess seams even while thin.
 - The append→project→read loop is proven end-to-end on the smallest possible slice, while
   there are few moving parts to get it wrong.
 - M3's live board reuses the same async-projection mechanism, so M1 de-risks it.
-- Cost: Marten configuration, projection daemon registration, and Postgres wiring are paid
-  up front in M1 rather than spread out. Accepted as a one-time cost on the right slice.
-- Fallback if the projection daemon threatens the milestone: read the waiting list via live
-  aggregation (the hybrid). The event write model is non-negotiable either way.
+- Cost: Marten configuration and Postgres wiring are paid up front in M1 rather than spread
+  out. Accepted as a one-time cost on the right slice.

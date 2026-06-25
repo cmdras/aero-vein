@@ -1,10 +1,27 @@
 using System.Reflection;
+using Api.Domain;
+using Api.ResourceAccess;
+using Marten;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
+
+var connectionString = builder.Configuration.GetConnectionString("Marten")
+    ?? throw new InvalidOperationException("ConnectionStrings:Marten is required");
+
+builder.Services.AddMarten(opts =>
+    {
+        opts.Connection(connectionString);
+    })
+    .UseLightweightSessions()
+    .InitializeWith(new MechelenSiteSeeds())
+    .ApplyAllDatabaseChangesOnStartup();
+
+builder.Services.AddScoped<ISiteAccess, SiteAccess>();
+builder.Services.AddScoped<IMissionStore, MissionStore>();
 
 var app = builder.Build();
 
@@ -25,6 +42,11 @@ app.MapGet("/", () => new
 
 // 401 until Microsoft OAuth (ARCHITECTURE §6.2) is wired.
 app.MapGet("/api/auth/me", () => Results.Unauthorized());
+
+app.MapGet("/api/sites", async (ISiteAccess sites, CancellationToken ct) =>
+    await sites.ListAsync(ct))
+    .WithName("GetSites")
+    .WithTags("Sites");
 
 app.Run();
 
