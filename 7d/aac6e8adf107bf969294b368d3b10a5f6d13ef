@@ -1,0 +1,23 @@
+packages/api/ResourceAccess/SiteAccess.cs
+  s_354fdd97da5299::t_c4e2a3a8e1fd12 8-9
+packages/api/Program.cs
+  s_354fdd97da5299::t_2030a9ccbbed2b 51-52
+packages/api/ResourceAccess/ISiteAccess.cs
+  s_354fdd97da5299::t_b0640ecb06dffc 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.1",
+  "base_commit_sha": "7daac6e8adf107bf969294b368d3b10a5f6d13ef",
+  "prompts": {},
+  "sessions": {
+    "s_354fdd97da5299": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "b08af75e-aafd-46af-88f4-bca4cd744d32",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
