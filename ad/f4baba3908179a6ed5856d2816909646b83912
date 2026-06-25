@@ -1,0 +1,25 @@
+packages/web/src/components/SiteDropdown.tsx
+  s_ad44e6b413f42d::t_25f9ca823d1d6c 1,10,12,20-21,24,31,33-35
+  s_ad44e6b413f42d::t_0b5085b1fa9e6d 22
+  s_ad44e6b413f42d::t_9729822b0c59e0 32
+packages/web/src/api/useSites.ts
+  s_ad44e6b413f42d::t_373752a6b7d7a5 1-67
+packages/web/src/components/SiteDropdown.test.tsx
+  s_ad44e6b413f42d::t_3ef73bd7fdd62f 1-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "adf4baba3908179a6ed5856d2816909646b83912",
+  "prompts": {},
+  "sessions": {
+    "s_ad44e6b413f42d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8310e976-2361-49de-8a3e-654490b1fb14",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
