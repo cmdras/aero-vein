@@ -1,8 +1,4 @@
-import { useEffect, useState } from 'react';
-import { api } from '#/api/client';
-import type { components } from '#/api/schema';
-
-type Site = components['schemas']['Site'];
+import { useSites } from '#/api/useSites';
 
 type Props = {
   label: string;
@@ -11,15 +7,9 @@ type Props = {
 };
 
 export function SiteDropdown({ label, value, onChange }: Props) {
-  const [sites, setSites] = useState<Site[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { sites, loading, error } = useSites();
 
-  useEffect(() => {
-    api.GET('/api/sites').then(({ data }) => {
-      if (data) setSites(data);
-      setLoading(false);
-    });
-  }, []);
+  const placeholder = loading ? 'Loading…' : error ? 'Failed to load sites' : 'Select a site';
 
   return (
     <label className="flex flex-col gap-1 text-sm">
@@ -27,16 +17,22 @@ export function SiteDropdown({ label, value, onChange }: Props) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        disabled={loading}
-        className="rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm disabled:opacity-50"
+        disabled={loading || !!error}
+        aria-invalid={!!error}
+        className="rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm disabled:opacity-50 aria-invalid:border-red-500"
       >
-        <option value="">{loading ? 'Loading…' : 'Select a site'}</option>
+        <option value="">{placeholder}</option>
         {sites.map((s) => (
           <option key={s.id} value={s.id}>
             {s.name}
           </option>
         ))}
       </select>
+      {error && (
+        <span role="alert" className="text-xs text-red-500">
+          {error}
+        </span>
+      )}
     </label>
   );
 }
