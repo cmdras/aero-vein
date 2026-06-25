@@ -1,0 +1,20 @@
+justfile
+  s_fc9887ccc55ce3::t_813dfdc416c703 14-19,21-23
+  s_fc9887ccc55ce3::t_3def4b342f3704 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "c4ed4c99781a5a936e92aae50c41d878c857d473",
+  "prompts": {},
+  "sessions": {
+    "s_fc9887ccc55ce3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "7f371d1b-f07c-4e87-9d67-6d2771d4444e",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
