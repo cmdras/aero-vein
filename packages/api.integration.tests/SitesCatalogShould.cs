@@ -10,7 +10,7 @@ public sealed class SitesCatalogShould : IClassFixture<PostgresApiFactory>
     public SitesCatalogShould(PostgresApiFactory factory) => _client = factory.CreateClient();
 
     [Fact]
-    public async Task GetSites_ReturnsAllMechelenSites()
+    public async Task GetAllMechelenSites()
     {
         // Arrange — factory seeds the catalog via MechelenSiteSeeds (IInitialData).
 
@@ -25,7 +25,7 @@ public sealed class SitesCatalogShould : IClassFixture<PostgresApiFactory>
     }
 
     [Fact]
-    public async Task GetSites_IncludesSintMaartenHospital()
+    public async Task IncludeSintMaartenHospital()
     {
         var response = await _client.GetAsync("/api/sites");
 
@@ -36,7 +36,7 @@ public sealed class SitesCatalogShould : IClassFixture<PostgresApiFactory>
     }
 
     [Fact]
-    public async Task GetSites_ReturnsSitesOrderedByName()
+    public async Task GetSitesOrderedByName()
     {
         var response = await _client.GetAsync("/api/sites");
 
