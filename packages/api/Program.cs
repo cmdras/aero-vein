@@ -1,5 +1,4 @@
 using System.Reflection;
-using Api.Domain;
 using Api.ResourceAccess;
 using Marten;
 using Scalar.AspNetCore;
@@ -12,16 +11,21 @@ builder.Services.AddOpenApi();
 var connectionString = builder.Configuration.GetConnectionString("Marten")
     ?? throw new InvalidOperationException("ConnectionStrings:Marten is required");
 
-builder.Services.AddMarten(opts =>
+var marten = builder.Services.AddMarten(opts =>
     {
         opts.Connection(connectionString);
     })
     .UseLightweightSessions()
-    .InitializeWith(new MechelenSiteSeeds())
-    .ApplyAllDatabaseChangesOnStartup();
+    .InitializeWith(new MechelenSiteSeeds());
+
+// Auto-migrating the schema on startup is a dev/test convenience. Production
+// schema changes are applied deliberately out-of-band, never on boot.
+if (!builder.Environment.IsProduction())
+{
+    marten.ApplyAllDatabaseChangesOnStartup();
+}
 
 builder.Services.AddScoped<ISiteAccess, SiteAccess>();
-builder.Services.AddScoped<IMissionStore, MissionStore>();
 
 var app = builder.Build();
 
@@ -41,7 +45,8 @@ app.MapGet("/", () => new
 });
 
 // 401 until Microsoft OAuth (ARCHITECTURE §6.2) is wired.
-app.MapGet("/api/auth/me", () => Results.Unauthorized());
+app.MapGet("/api/auth/me", () => TypedResults.Unauthorized())
+    .Produces(StatusCodes.Status401Unauthorized);
 
 app.MapGet("/api/sites", async (ISiteAccess sites, CancellationToken ct) =>
     await sites.ListAsync(ct))
