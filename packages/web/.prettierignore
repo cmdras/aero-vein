@@ -1,0 +1,6 @@
+# Generated files — regenerated on build, not hand-edited, and already excluded
+# from oxlint (.oxlintrc.json) and fallow (.fallowrc.json). Keep the formatter off
+# them too so `vp check` (Oxfmt) stays green right after a fresh build.
+src/routeTree.gen.ts
+src/api/schema.ts
+dist

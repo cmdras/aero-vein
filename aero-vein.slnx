@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/packages/">
+    <Project Path="packages/api/api.csproj" />
+    <Project Path="packages/api.tests/api.tests.csproj" />
+    <Project Path="packages/api.integration.tests/api.integration.tests.csproj" />
+  </Folder>
+</Solution>
