@@ -1,0 +1,121 @@
+justfile
+  s_f1d3a4ca4a23b6::t_684d8b130ace65 1-85
+docs/agents/triage-labels.md
+  s_c2b6d6c1ee5db1::t_b58038ccf8751f 1-15
+packages/web/src/routeTree.gen.ts
+  s_c2b6d6c1ee5db1::t_2ea64210acf156 1-59
+packages/web/src/routes/__root.tsx
+  s_f1d3a4ca4a23b6::t_3f045cf1d12166 1-13
+packages/api.tests/api.tests.csproj
+  s_f1d3a4ca4a23b6::t_64b29d613c3984 1-23
+packages/web/.prettierignore
+  s_f1d3a4ca4a23b6::t_0a72049764c77a 1-6
+packages/api/api.csproj
+  s_f1d3a4ca4a23b6::t_38ee6ad2a4b37c 1-15
+packages/web/src/lib/utils.ts
+  s_f1d3a4ca4a23b6::t_1fe519fe203ed2 1-6
+packages/web/tsconfig.json
+  s_f1d3a4ca4a23b6::t_b5f9e72f14a7bb 1-27
+packages/api.tests/IntRangeShould.cs
+  s_f1d3a4ca4a23b6::t_b500f08bd3b496 1-74
+packages/api.integration.tests/AuthEndpointShould.cs
+  s_f1d3a4ca4a23b6::t_69e8da94944697 1-27
+package.json
+  s_f1d3a4ca4a23b6::t_c25fc5719a408a 1-29
+aero-vein.slnx
+  s_c2b6d6c1ee5db1::t_e814489f582e75 1-7
+e2e/README.md
+  s_f1d3a4ca4a23b6::t_e68f02d5bb9431 1-58
+playwright.config.ts
+  s_f1d3a4ca4a23b6::t_d85b1cae5d8c9a 1-58
+docs/agents/domain.md
+  s_c2b6d6c1ee5db1::t_b58038ccf8751f 1-51
+packages/web/.oxlintrc.json
+  s_f1d3a4ca4a23b6::t_3507bf2b9e878c 1-30
+packages/web/index.html
+  s_f1d3a4ca4a23b6::t_78bdf44c31a6b6 1-14
+.claude/skills/app-do-work-tdd/SKILL.md
+  s_c2b6d6c1ee5db1::t_da3959eeb60c96 1-79
+.claude/hooks/block-dangerous-git.sh
+  s_c2b6d6c1ee5db1::t_ccc45c7d0d61a3 1-31
+Directory.Build.props
+  s_c2b6d6c1ee5db1::t_ccc45c7d0d61a3 1-13
+packages/api.integration.tests/api.integration.tests.csproj
+  s_f1d3a4ca4a23b6::t_42d9436286ce19 1-24
+CLAUDE.md
+  s_f1d3a4ca4a23b6::t_c931814a1328fc 1-15
+packages/web/package.json
+  s_f1d3a4ca4a23b6::t_fda9d530baafe8 1-51
+CONTEXT.md
+  s_f1d3a4ca4a23b6::t_456b950a248a45 1-10
+packages/web/public/favicon.svg
+  s_f1d3a4ca4a23b6::t_17b810b02bfa8b 1-6
+packages/api/appsettings.json
+  s_f1d3a4ca4a23b6::t_098e8b5617e157 1-9
+docs/adr/0001-record-architecture-decisions.md
+  s_f1d3a4ca4a23b6::t_92d32b427d8ffc 1-24
+e2e/smoke.spec.ts
+  s_f1d3a4ca4a23b6::t_1a91a28bc68860 1-10
+packages/web/.fallowrc.json
+  s_f1d3a4ca4a23b6::t_e4da8043123629 1-24
+.claude/skills/app-write-tests/SKILL.md
+  s_c2b6d6c1ee5db1::t_da3959eeb60c96 1-169
+vite.config.ts
+  s_c2b6d6c1ee5db1::t_e814489f582e75 1-8
+.claude/settings.json
+  s_c2b6d6c1ee5db1::t_d89f7834137d8f 1-31
+.claude/skills/app-do-check/SKILL.md
+  s_c2b6d6c1ee5db1::t_da3959eeb60c96 1-24
+packages/web/src/lib/utils.test.ts
+  s_f1d3a4ca4a23b6::t_80659f5d81e643 1-6
+packages/web/vite.config.ts
+  s_f1d3a4ca4a23b6::t_e061284d9f8939 1-22
+.claude/skills/app-git-commit/SKILL.md
+  s_c2b6d6c1ee5db1::t_da3959eeb60c96 1-147
+packages/api/appsettings.Development.json
+  s_f1d3a4ca4a23b6::t_4e106a12557b14 1-8
+packages/web/components.json
+  s_f1d3a4ca4a23b6::t_2fef33ff038afe 1-21
+packages/api.integration.tests/RootEndpointShould.cs
+  s_f1d3a4ca4a23b6::t_efeef49263ca73 1-32
+docs/agents/issue-tracker.md
+  s_c2b6d6c1ee5db1::t_b58038ccf8751f 1-22
+packages/web/src/styles.css
+  s_f1d3a4ca4a23b6::t_6b6a8a406b66e9 1-60
+packages/api/Properties/launchSettings.json
+  s_f1d3a4ca4a23b6::t_f2f4f7757c08a3 1-14
+packages/web/src/main.tsx
+  s_f1d3a4ca4a23b6::t_b1752bd3928dfe 1-19
+packages/web/src/routes/index.tsx
+  s_f1d3a4ca4a23b6::t_6753d10a629f70 1-22
+.gitignore
+  s_c2b6d6c1ee5db1::t_e814489f582e75 1-63
+packages/api/Program.cs
+  s_f1d3a4ca4a23b6::t_7c1c8861ca4a96 1-33
+packages/web/tests/setup.ts
+  s_f1d3a4ca4a23b6::t_97ad944b62e81f 1-4
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "5e75aa88574a2b749c29883a33916e00f18b9fe0",
+  "prompts": {},
+  "sessions": {
+    "s_c2b6d6c1ee5db1": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "de242126-f88f-4ad6-9248-dd5dd1484c74",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    },
+    "s_f1d3a4ca4a23b6": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c4966218-caea-4367-bfc8-78f79a596e72",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
