@@ -11,7 +11,8 @@ default:
 
 # --- Dev -------------------------------------------------------------------
 
-# Ensure the dev Postgres service is running (installs via apt if needed).
+# Ensure the dev Postgres service is up and the aerovein_dev database exists.
+# Assumes PostgreSQL is already installed — this starts the service, it does not install it.
 db:
     @if ! pg_isready -q -h 127.0.0.1 -p 5432 2>/dev/null; then \
         echo "Starting PostgreSQL service..."; \
