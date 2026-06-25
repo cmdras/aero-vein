@@ -14,6 +14,15 @@ Execute a complete unit of work: plan it, build it, validate it, commit it.
 
 If an issue file was passed as an argument, read it first — it is the source of truth for scope, acceptance criteria, and any references. Otherwise, abort the skill and ask the user to provide an issue file.
 
+**Branch guard** — before doing anything else, check the current branch with `git branch --show-current`. If it is `main` or `master`, abort immediately with this message:
+
+> Work cannot start on `main`. Please check out a feature branch off the appropriate milestone branch first:
+> ```
+> git checkout milestone/<name>          # or create it if it doesn't exist
+> git checkout -b feat/<short-name>
+> ```
+> Then re-run this skill.
+
 Then explore the codebase to understand the relevant files, patterns, and conventions. Delegate codebase exploration beyond ~3 greps to the built-in `Explore` agent to keep context light.
 
 If the task is ambiguous, ask the user to clarify scope before proceeding.
@@ -28,7 +37,13 @@ Work through the plan step by step.
 
 ### 3. Validate
 
-Run the feedback loops and fix any issues. Repeat until all pass cleanly.
+If backend code (`packages/api/**`) changed in a way that affects the API surface (new endpoints, changed request/response shapes), regenerate the frontend schema first — the API must be running on `:5204`:
+
+```bash
+just gen:api
+```
+
+Then run the feedback loops and fix any issues. Repeat until all pass cleanly.
 
 ```bash
 bun run check     # static analysis of Typescript code with linting, typechecking, and formatting

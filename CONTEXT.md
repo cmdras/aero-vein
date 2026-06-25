@@ -37,10 +37,11 @@ no upper cap is enforced at intake. See [[adr-0006]].
 
 ### Waiting list
 The dispatcher's single list of all `Waiting` missions, sorted ascending by
-[[time-to-deadline]] (most urgent first). It is a Marten projection over the custody streams,
-using the **Inline** lifecycle in M1 (read-your-writes by construction) — the async
-projection daemon arrives in M3 for the live board. Read via `GET /requests?waiting`. See
-[[adr-0009]].
+[[time-to-deadline]] (most urgent first); ties (equal `latestArrival`) break by submission
+time (`MissionRequested.at`) ascending, giving a stable, jitter-free order between polls. It
+is a Marten projection over the custody streams, using the **Inline** lifecycle in M1
+(read-your-writes by construction) — the async projection daemon arrives in M3 for the live
+board. Read via `GET /requests?waiting`. See [[adr-0009]], [[adr-0010]].
 
 ### Actor
 Who performed an action, recorded on every custody event (§4). In M1 it is the current

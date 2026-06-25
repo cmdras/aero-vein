@@ -34,9 +34,10 @@ obj/
 *.suo
 *.sln.docstates
 *.userprefs
-# Local-only / secret-bearing settings (appsettings.Development.json is committed).
+# Local-only / secret-bearing settings — developer-local, never committed.
 appsettings.Local.json
 appsettings.*.Local.json
+appsettings.Development.json
 
 # IDEs
 .vscode/
