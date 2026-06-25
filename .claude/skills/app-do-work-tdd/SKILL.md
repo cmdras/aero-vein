@@ -37,7 +37,13 @@ Work through the plan step by step.
 
 ### 3. Validate
 
-Run the feedback loops and fix any issues. Repeat until all pass cleanly.
+If backend code (`packages/api/**`) changed in a way that affects the API surface (new endpoints, changed request/response shapes), regenerate the frontend schema first — the API must be running on `:5204`:
+
+```bash
+just gen:api
+```
+
+Then run the feedback loops and fix any issues. Repeat until all pass cleanly.
 
 ```bash
 bun run check     # static analysis of Typescript code with linting, typechecking, and formatting
