@@ -11,6 +11,16 @@ default:
 
 # --- Dev -------------------------------------------------------------------
 
+# Ensure the dev Postgres service is running (installs via apt if needed).
+db:
+    @if ! pg_isready -q -h 127.0.0.1 -p 5432 2>/dev/null; then \
+        echo "Starting PostgreSQL service..."; \
+        sudo service postgresql start; \
+    fi
+    @sudo -u postgres psql -tc "SELECT 1 FROM pg_database WHERE datname='aerovein_dev'" 2>/dev/null \
+        | grep -q 1 \
+        || (echo "Creating aerovein_dev database..." && sudo -u postgres createdb aerovein_dev)
+
 # Run the web dev server and the API watcher together (Ctrl-C stops both),
 # each line prefixed with a colored [web]/[api] tag.
 dev:
