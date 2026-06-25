@@ -1,0 +1,19 @@
+justfile
+  s_ad44e6b413f42d::t_6d0e9fca090951 14-15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "ee790c83fd212dadbca1d9c251238497e706ebe1",
+  "prompts": {},
+  "sessions": {
+    "s_ad44e6b413f42d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8310e976-2361-49de-8a3e-654490b1fb14",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
