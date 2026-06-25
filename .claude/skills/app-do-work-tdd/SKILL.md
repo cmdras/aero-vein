@@ -14,6 +14,15 @@ Execute a complete unit of work: plan it, build it, validate it, commit it.
 
 If an issue file was passed as an argument, read it first — it is the source of truth for scope, acceptance criteria, and any references. Otherwise, abort the skill and ask the user to provide an issue file.
 
+**Branch guard** — before doing anything else, check the current branch with `git branch --show-current`. If it is `main` or `master`, abort immediately with this message:
+
+> Work cannot start on `main`. Please check out a feature branch off the appropriate milestone branch first:
+> ```
+> git checkout milestone/<name>          # or create it if it doesn't exist
+> git checkout -b feat/<short-name>
+> ```
+> Then re-run this skill.
+
 Then explore the codebase to understand the relevant files, patterns, and conventions. Delegate codebase exploration beyond ~3 greps to the built-in `Explore` agent to keep context light.
 
 If the task is ambiguous, ask the user to clarify scope before proceeding.
