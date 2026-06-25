@@ -1,0 +1,21 @@
+packages/api.integration.tests/SitesCatalogShould.cs
+  s_ad44e6b413f42d::t_96f2f401d8220f 28
+  s_ad44e6b413f42d::t_c8a2252b232305 13
+  s_ad44e6b413f42d::t_52b03c0a38cc37 39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "1d855ed173a69961e844851c403040be8323532f",
+  "prompts": {},
+  "sessions": {
+    "s_ad44e6b413f42d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8310e976-2361-49de-8a3e-654490b1fb14",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
