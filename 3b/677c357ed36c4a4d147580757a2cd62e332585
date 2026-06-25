@@ -1,0 +1,27 @@
+packages/api/appsettings.json
+  s_ad44e6b413f42d::t_8e4adbe7b11df6 8
+packages/web/src/api/schema.ts
+  s_ad44e6b413f42d::t_1dd12abaec18e9 58-59
+.gitignore
+  s_ad44e6b413f42d::t_a4fe33b77cdf0f 37,40
+packages/api/Program.cs
+  s_ad44e6b413f42d::t_fbaafbf40529a4 48-49
+  s_ad44e6b413f42d::t_eebffbfb59ea38 20
+  s_ad44e6b413f42d::t_924d57bed22fbd 14,19,21-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.13",
+  "base_commit_sha": "3b677c357ed36c4a4d147580757a2cd62e332585",
+  "prompts": {},
+  "sessions": {
+    "s_ad44e6b413f42d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8310e976-2361-49de-8a3e-654490b1fb14",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Chris Ras <chris.ras@euri.com>"
+    }
+  }
+}
