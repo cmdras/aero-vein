@@ -65,8 +65,12 @@ build-api:
 test stack="all":
     case "{{stack}}" in \
         web)  bun run --filter web test --run ;; \
-        api)  dotnet test aero-vein.slnx -m:1 ;; \
-        unit) dotnet test packages/api.tests/api.tests.csproj -m:1 ;; \
+        api)  just test unit && just test int ;; \
+        unit) if find packages/api.tests -maxdepth 3 -name "*.cs" ! -path "*/obj/*" | grep -q .; then \
+                dotnet test packages/api.tests/api.tests.csproj -m:1; \
+              else \
+                echo "api.tests: no tests yet"; \
+              fi ;; \
         int)  dotnet test packages/api.integration.tests/api.integration.tests.csproj -m:1 ;; \
         e2e)  bun run test:e2e ;; \
         all)  just test web && just test api && just test e2e ;; \

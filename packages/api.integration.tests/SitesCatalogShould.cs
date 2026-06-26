@@ -10,7 +10,7 @@ public sealed class SitesCatalogShould : IClassFixture<PostgresApiFactory>
     public SitesCatalogShould(PostgresApiFactory factory) => _client = factory.CreateClient();
 
     [Fact]
-    public async Task GetAllMechelenSites()
+    public async Task GetSites_ReturnsFiveSitesOrderedByName()
     {
         // Arrange — factory seeds the catalog via MechelenSiteSeeds (IInitialData).
 
@@ -22,27 +22,7 @@ public sealed class SitesCatalogShould : IClassFixture<PostgresApiFactory>
         var sites = await response.Content.ReadFromJsonAsync<SiteResponse[]>();
         Assert.NotNull(sites);
         Assert.Equal(5, sites.Length);
-    }
-
-    [Fact]
-    public async Task IncludeSintMaartenHospital()
-    {
-        var response = await _client.GetAsync("/api/sites");
-
-        response.EnsureSuccessStatusCode();
-        var sites = await response.Content.ReadFromJsonAsync<SiteResponse[]>();
-        Assert.NotNull(sites);
         Assert.Contains(sites, s => s.Name == "Sint-Maarten Hospital");
-    }
-
-    [Fact]
-    public async Task GetSitesOrderedByName()
-    {
-        var response = await _client.GetAsync("/api/sites");
-
-        response.EnsureSuccessStatusCode();
-        var sites = await response.Content.ReadFromJsonAsync<SiteResponse[]>();
-        Assert.NotNull(sites);
         var names = sites.Select(s => s.Name).ToList();
         Assert.Equal(names.OrderBy(n => n), names);
     }
